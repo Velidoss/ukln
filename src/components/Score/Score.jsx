@@ -1,4 +1,6 @@
 import React from 'react';
+import useAppSelector from './../../store/hooks/useAppSelector';
+import { itemsSelector } from './../../store/selectors';
 
 const placeholder = [
   {
@@ -17,9 +19,12 @@ const placeholder = [
     name: "D",
     score: 0,
   },
-]
+];
 
 const Score = () => {
+
+  const items = useAppSelector(itemsSelector);
+  console.log(items)
 
   return (
     <div>

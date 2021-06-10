@@ -1,8 +1,11 @@
+import { Button, TextField, Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {addWorker} from '../../store/workersSlice/workersSlice';
+import style from './InputStyle';
 
 const Input = () => {
+  const classes = style();
 
   const [workerName, setWorkerName] = useState('');
   const [workHours, setWorkHours] = useState('');
@@ -22,15 +25,39 @@ const Input = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={addItem}>
-        <label>Worker Name</label>
-        <input type="text" value={workerName} onChange={changeWorkerName} />
-        <label>Worker hours</label>
-        <input type="text" value={workHours} onChange={changeWorkHours} />
-        <button type="submit">Add</button>
-      </form>
-    </div>
+    <form onSubmit={addItem}>
+      <Grid 
+        container 
+        justify="center"
+        direction="column"
+        alignItems="center"
+      >
+        <TextField 
+          className={classes.formItem}
+          label="Worker Name"
+          type="text" 
+          value={workerName} 
+          onChange={changeWorkerName}
+          variant="outlined"
+        />
+        <TextField 
+          className={classes.formItem}
+          label="Worker hours"
+          type="number" 
+          value={workHours} 
+          onChange={changeWorkHours}
+          variant="outlined"
+        />
+        <Button 
+          className={`${classes.formItem} ${classes.formButton}`}
+          type="submit"
+          variant="outlined" 
+          color="primary"
+        >
+          Add
+        </Button>
+      </Grid>
+    </form>
   )
 };
 

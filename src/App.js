@@ -1,19 +1,22 @@
-import './App.css';
+import { Container, Grid } from '@material-ui/core';
 import Comparison from './components/Comparison/Comparison';
 import Input from './components/Input/Input';
 import Score from './components/Score/Score';
 
 function App() {
   return (
-    <div className="App">
-        <div>
+    <Container>
+      <Grid container direction="row">
+        <Grid container item direction="column">
           <Input/>
           <Score/>
-        </div>
-        <div>
+        </Grid>
+        <Grid  container item>
           <Comparison/>
-        </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Container>
+
   );
 }
 

@@ -7,8 +7,6 @@ const Score = () => {
 
   const workers = useAppSelector(workersSelector);
 
-  console.log(workers);
-
   return (
     <div>
       <table>
@@ -25,7 +23,7 @@ const Score = () => {
         <tbody>
           {
             workers.map((worker) => (
-              <Worker workerData={worker} />
+              <Worker key={worker.workerName} workerData={worker} />
             ))
           }
         </tbody>

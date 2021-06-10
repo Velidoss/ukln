@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { removeWorker } from '../../../store/workersSlice/workersSlice';
 
 const Worker = ({workerData}) => {
-  console.log(workerData)
+
   const dispatch = useDispatch();
 
   const deleteWorker = () => {

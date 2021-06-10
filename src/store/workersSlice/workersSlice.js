@@ -18,8 +18,9 @@ const itemSlice = createSlice({
       state.workersData = state.workersData.sort((prev, current) =>  current.score - prev.score);
     },
     removeWorker: (state, action) => {
-      state.workersData = state.workersData.filter((item) => item.name !== action.payload);
-      compareWorkHours(state);
+      state.workersData = state.workersData.filter((item) => item.workerName !== action.payload);
+      compareWorkHours(state.workersData);
+      state.comparisons = state.comparisons.filter((item) => item.better !== action.payload && item.worse !== action.payload);
     },
   }
 });

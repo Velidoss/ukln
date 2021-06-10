@@ -1,5 +1,8 @@
 const compareWorkHours = (workersArray) => {
   for (let i = 0; i < workersArray.length; i++) {
+    workersArray[i].score = 0;
+  }
+  for (let i = 0; i < workersArray.length; i++) {
     for (let j = i + 1; j < workersArray.length; j++) {
       if (parseInt(workersArray[i].workHours) > parseInt(workersArray[j].workHours)) {
         workersArray[i].score += 1;

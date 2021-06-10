@@ -1,4 +1,5 @@
 const setComparisonsData = (workers) => {
+  console.log(workers)
   return workers.reduce((acc, worker) => {
     worker.compared.forEach((comparison) => {
       if (comparison.result === 1) {

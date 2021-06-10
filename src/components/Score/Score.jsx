@@ -1,11 +1,13 @@
 import React from 'react';
 import useAppSelector from './../../store/hooks/useAppSelector';
 import { workersSelector } from './../../store/selectors';
+import Worker from './Worker/Worker';
 
 const Score = () => {
 
   const workers = useAppSelector(workersSelector);
-  console.log(workers)
+
+  console.log(workers);
 
   return (
     <div>
@@ -22,18 +24,8 @@ const Score = () => {
         </thead>
         <tbody>
           {
-            workers.map((workers) => (
-              <tr key={workers.workerName}>
-                <td>
-                  {workers.workerName}
-                </td>
-                <td>
-                  {workers.workHours}
-                </td>
-                <td>
-                  {workers.score}
-                </td>
-              </tr>
+            workers.map((worker) => (
+              <Worker workerData={worker} />
             ))
           }
         </tbody>

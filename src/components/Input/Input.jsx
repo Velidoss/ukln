@@ -18,7 +18,6 @@ const Input = () => {
 
   const addItem = (event) => {
     event.preventDefault();
-    console.log(workerName, workHours);
     dispatch(addWorker({workerName, workHours}));
   }
 

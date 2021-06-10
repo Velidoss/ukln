@@ -1,1 +1,2 @@
-export const itemsSelector = (state) => state.workers;
+export const workersSelector = (state) => state.workers.workersData;
+export const comparisonsSelector = (state) => state.workers.comparisons;

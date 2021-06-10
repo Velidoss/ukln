@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import compareWorkHours from "../../utils/compareWorkHours";
+import setComparisonsData from "../../utils/setComparisonsData";
 import compareWithNewWorker from './../../utils/compareWithNewWorker';
 
-const initialState = [];
+const initialState = {
+  workersData: [],
+  comparisons: [],
+};
 
 const itemSlice = createSlice({
   name: 'item',
   initialState,
   reducers : {
     addWorker: (state, action) => {
-      compareWithNewWorker(state, {...action.payload, score: 0, compared: []});
+      compareWithNewWorker(state.workersData, {...action.payload, score: 0, compared: []});
+      state.comparisons = setComparisonsData(state.workersData);
     },
     removeWorker: (state, action) => {
-      state.filter((item) => item.name !== action.payload);
+      state.comparisons.filter((item) => item.name !== action.payload);
       compareWorkHours(state);
     },
     sortWorkers: (state) => {

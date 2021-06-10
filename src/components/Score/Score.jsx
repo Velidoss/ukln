@@ -1,10 +1,10 @@
 import React from 'react';
 import useAppSelector from './../../store/hooks/useAppSelector';
-import { itemsSelector } from './../../store/selectors';
+import { workersSelector } from './../../store/selectors';
 
 const Score = () => {
 
-  const workers = useAppSelector(itemsSelector);
+  const workers = useAppSelector(workersSelector);
   console.log(workers)
 
   return (

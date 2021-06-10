@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import useAppSelector from './../../store/hooks/useAppSelector';
+import { comparisonsSelector } from './../../store/selectors';
 
   const placeholder = [
     {
@@ -28,6 +31,11 @@ import React from 'react';
   ];
 
 const Comparison = () => {
+
+  const dispatch = useDispatch();
+
+  const comparisons = useAppSelector(comparisonsSelector);
+  console.log(comparisons);
 
   return (
     <div>

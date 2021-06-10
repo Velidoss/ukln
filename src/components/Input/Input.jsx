@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import useAppDispatch from '../../store/hooks/useAppDispatch';
 import {addWorker} from '../../store/workersSlice/workersSlice';
 
 const Input = () => {
 
   const [workerName, setWorkerName] = useState('');
   const [workHours, setWorkHours] = useState('');
-
+  const dispatch = useDispatch();
+  
   const changeWorkerName = (event) => {
     setWorkerName(event.target.value);
   };
   const changeWorkHours = (event) => {
     setWorkHours(event.target.value);
   };
-  const dispatch = useDispatch();
+
 
   const addItem = (event) => {
     event.preventDefault();

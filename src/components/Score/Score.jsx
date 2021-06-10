@@ -2,29 +2,10 @@ import React from 'react';
 import useAppSelector from './../../store/hooks/useAppSelector';
 import { itemsSelector } from './../../store/selectors';
 
-const placeholder = [
-  {
-    name: "Anthony",
-    score: 3,
-  },
-  {
-    name: "Bill",
-    score: 2,
-  },
-  {
-    name: "Celly",
-    score: 1,
-  },
-  {
-    name: "Dan",
-    score: 0,
-  },
-];
-
 const Score = () => {
 
-  const items = useAppSelector(itemsSelector);
-  console.log(items)
+  const workers = useAppSelector(itemsSelector);
+  console.log(workers)
 
   return (
     <div>
@@ -41,13 +22,16 @@ const Score = () => {
         </thead>
         <tbody>
           {
-            placeholder.map((item) => (
-              <tr key={item.name}>
+            workers.map((workers) => (
+              <tr key={workers.workerName}>
                 <td>
-                  {item.name}
+                  {workers.workerName}
                 </td>
                 <td>
-                  {item.score}
+                  {workers.workHours}
+                </td>
+                <td>
+                  {workers.score}
                 </td>
               </tr>
             ))

@@ -36,8 +36,8 @@ const Comparison = () => {
       </div>
       <div>
         {
-          placeholder.map((item) => (
-            <div style={{display: 'flex'}}>
+          placeholder.map((item, index) => (
+            <div key={index} style={{display: 'flex'}}>
               <p style={{color: 'green'}}>{item.better}</p>
               <p>{item.worse}</p>
             </div>

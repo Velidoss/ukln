@@ -1,1 +1,1 @@
-export const itemsSelector = (state) => state.items;
+export const itemsSelector = (state) => state.workers;

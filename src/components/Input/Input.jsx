@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
+import useAppDispatch from '../../store/hooks/useAppDispatch';
+import {addWorker} from '../../store/workersSlice/workersSlice';
 
 const Input = () => {
 
-  const [itemData, setItemData] = useState('');
+  const [workerName, setWorkerName] = useState('');
+  const [workHours, setWorkHours] = useState('');
 
-  const changeData = (event) => {
-    setItemData(event.target.value);
+  const changeWorkerName = (event) => {
+    setWorkerName(event.target.value);
   };
+  const changeWorkHours = (event) => {
+    setWorkHours(event.target.value);
+  };
+  const dispatch = useAppDispatch();
 
   const addItem = (event) => {
     event.preventDefault();
-    alert(itemData);
+    console.log(workerName, workHours);
+    dispatch(addWorker({workerName, workHours}));
   }
 
   return (
     <div>
       <form onSubmit={addItem}>
-        <input type="text" value={itemData} onChange={changeData} />
+        <label>Worker Name</label>
+        <input type="text" value={workerName} onChange={changeWorkerName} />
+        <label>Worker hours</label>
+        <input type="text" value={workHours} onChange={changeWorkHours} />
         <button type="submit">Add</button>
       </form>
     </div>

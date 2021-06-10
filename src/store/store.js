@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import itemsReducer from './itemsReducer/itemsReducer';
+import workersSlice from "./workersSlice/workersSlice";
 
 const store = configureStore({
-  reducer : {items: itemsReducer}
+  reducer : {workers: workersSlice}
 });
 
 export default store;

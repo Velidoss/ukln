@@ -4,19 +4,19 @@ import { itemsSelector } from './../../store/selectors';
 
 const placeholder = [
   {
-    name: "A",
+    name: "Anthony",
     score: 3,
   },
   {
-    name: "B",
+    name: "Bill",
     score: 2,
   },
   {
-    name: "C",
+    name: "Celly",
     score: 1,
   },
   {
-    name: "D",
+    name: "Dan",
     score: 0,
   },
 ];
@@ -42,7 +42,7 @@ const Score = () => {
         <tbody>
           {
             placeholder.map((item) => (
-              <tr>
+              <tr key={item.name}>
                 <td>
                   {item.name}
                 </td>

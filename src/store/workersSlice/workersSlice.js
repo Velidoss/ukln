@@ -15,17 +15,15 @@ const itemSlice = createSlice({
     addWorker: (state, action) => {
       compareWithNewWorker(state.workersData, {...action.payload, score: 0, compared: []});
       state.comparisons = setComparisonsData(state.workersData);
+      state.workersData = state.workersData.sort((prev, current) =>  current.score - prev.score);
     },
     removeWorker: (state, action) => {
-      state.comparisons.filter((item) => item.name !== action.payload);
+      state.workersData = state.workersData.filter((item) => item.name !== action.payload);
       compareWorkHours(state);
     },
-    sortWorkers: (state) => {
-      state.sort((prev, current) =>  current.score - prev.score);
-    }
   }
 });
 
 
-export const {addWorker, removeWorker, sortWorkers} = itemSlice.actions;
+export const {addWorker, removeWorker} = itemSlice.actions;
 export default itemSlice.reducer;

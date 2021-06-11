@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {addWorker} from '../../store/workersSlice/workersSlice';
 import style from './InputStyle';
+import useAppSelector from './../../store/hooks/useAppSelector';
+import { errorSelector } from './../../store/selectors';
+import { toggleErrorState } from './../../store/workersSlice/workersSlice';
 
 const Input = () => {
   const classes = style();
@@ -10,14 +13,17 @@ const Input = () => {
   const [workerName, setWorkerName] = useState('');
   const [workHours, setWorkHours] = useState('');
   const dispatch = useDispatch();
-  
+  const errorState = useAppSelector(errorSelector);
+  console.log(errorState)
   const changeWorkerName = (event) => {
+    if (errorState){
+      dispatch(toggleErrorState(false));
+    }
     setWorkerName(event.target.value);
   };
   const changeWorkHours = (event) => {
     setWorkHours(event.target.value);
   };
-
 
   const addItem = (event) => {
     event.preventDefault();
@@ -36,6 +42,8 @@ const Input = () => {
           Enter worker data
         </Typography>
         <TextField 
+          error={errorState}
+          helperText={errorState ? 'This name is already exists': ''}
           className={classes.formItem}
           label="Worker Name"
           type="text" 

@@ -3,10 +3,12 @@ import useAppSelector from './../../store/hooks/useAppSelector';
 import { comparisonsSelector } from './../../store/selectors';
 import { Grid, List, Typography } from '@material-ui/core';
 import ComparisonListItem from './ComparisonListItem/ComparisonListItem';
+import style from './ComparisonStyles';
 
 const Comparison = () => {
 
   const comparisons = useAppSelector(comparisonsSelector);
+  const classes = style();
 
   return (
     <Grid container direction="column">
@@ -16,7 +18,7 @@ const Comparison = () => {
         </Typography>
       </Grid>
       <Grid item container justify="center" >
-        <List>
+        <List className={classes.root}>
           {
             comparisons.map((item, index) => (
               <ComparisonListItem key={index} comparisonItem={item} />

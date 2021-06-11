@@ -10,7 +10,6 @@ const ComparisonListItem = ({comparisonItem}) => {
       <ListItemText>
         <Chip 
           className={classes.itemBetter}
-          variant="outlined"
           label={comparisonItem.better}
           color="primary"
         />

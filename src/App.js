@@ -6,8 +6,8 @@ import Score from './components/Score/Score';
 function App() {
   return (
     <Container>
-      <Grid container direction="row">
-        <Grid container item  direction="column" xs={6}>
+      <Grid container >
+        <Grid container item  direction="column" lg={6}>
           <Grid container item justify="center" >
              <Input/>
           </Grid>
@@ -15,7 +15,7 @@ function App() {
             <Score/>
           </Grid>
         </Grid>
-        <Grid container item xs={6}>
+        <Grid container item lg={6}>
           <Comparison/>
         </Grid>
       </Grid>

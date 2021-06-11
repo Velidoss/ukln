@@ -1,4 +1,4 @@
-import { Button, TextField, Grid } from '@material-ui/core';
+import { Button, TextField, Grid, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {addWorker} from '../../store/workersSlice/workersSlice';
@@ -32,6 +32,9 @@ const Input = () => {
         direction="column"
         alignItems="center"
       >
+        <Typography className={classes.formItem}>
+          Enter worker data
+        </Typography>
         <TextField 
           className={classes.formItem}
           label="Worker Name"

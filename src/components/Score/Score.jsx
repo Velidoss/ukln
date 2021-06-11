@@ -1,3 +1,4 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import React from 'react';
 import useAppSelector from './../../store/hooks/useAppSelector';
 import { workersSelector } from './../../store/selectors';
@@ -8,27 +9,31 @@ const Score = () => {
   const workers = useAppSelector(workersSelector);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <td>
-              Item
-            </td>
-            <td>
-              Score
-            </td>
-          </tr>
-        </thead>
-        <tbody>
+    <TableContainer component={Paper} >
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              Worker name
+            </TableCell>
+            <TableCell>
+              Work hours
+            </TableCell>
+            <TableCell>
+              Worker score
+            </TableCell>
+            <TableCell />
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {
             workers.map((worker) => (
               <Worker key={worker.workerName} workerData={worker} />
             ))
           }
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer >
   )
 };
 

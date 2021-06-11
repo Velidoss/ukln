@@ -1,28 +1,30 @@
 import React from 'react';
 import useAppSelector from './../../store/hooks/useAppSelector';
 import { comparisonsSelector } from './../../store/selectors';
+import { Grid, List, Typography } from '@material-ui/core';
+import ComparisonListItem from './ComparisonListItem/ComparisonListItem';
 
 const Comparison = () => {
 
   const comparisons = useAppSelector(comparisonsSelector);
 
   return (
-    <div>
-      <div>
-        Compare items
-      </div>
-      <div>
-        {
-          comparisons.map((item, index) => (
-            <div key={index} style={{display: 'flex'}}>
-              <p style={{color: 'green'}}>{item.better}</p>
-              <p>  better than ---  </p>
-              <p>{item.worse}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+    <Grid container direction="column">
+      <Grid item container justify="center" >
+        <Typography style={{marginTop: 20}}>
+          Workers comparisons
+        </Typography>
+      </Grid>
+      <Grid item container justify="center" >
+        <List>
+          {
+            comparisons.map((item, index) => (
+              <ComparisonListItem key={index} comparisonItem={item} />
+            ))
+          }
+        </List>
+      </Grid>
+    </Grid>
   )
 };
 

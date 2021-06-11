@@ -1,3 +1,4 @@
+import { Button, TableCell, TableRow } from '@material-ui/core';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeWorker } from '../../../store/workersSlice/workersSlice';
@@ -11,20 +12,26 @@ const Worker = ({workerData}) => {
   };
 
   return (
-    <tr key={workerData.workerName}>
-      <td>
+    <TableRow key={workerData.workerName}>
+      <TableCell>
         {workerData.workerName}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {workerData.workHours}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {workerData.score}
-      </td>
-      <td>
-        <button onClick={deleteWorker}>delete</button>
-      </td>
-    </tr>
+      </TableCell>
+      <TableCell>
+        <Button 
+          variant="outlined"
+          onClick={deleteWorker}
+          color="secondary"
+        >
+          delete
+        </Button>
+      </TableCell>
+    </TableRow>
   )
 };
 

@@ -10,8 +10,8 @@ const initialState = {
   nameError: false,
 };
 
-const itemSlice = createSlice({
-  name: 'item',
+const workersSlice = createSlice({
+  name: 'worker',
   initialState,
   reducers : {
     addWorker: (state, action) => {      
@@ -35,5 +35,5 @@ const itemSlice = createSlice({
 });
 
 
-export const {addWorker, removeWorker, toggleErrorState} = itemSlice.actions;
-export default itemSlice.reducer;
+export const {addWorker, removeWorker, toggleErrorState} = workersSlice.actions;
+export default workersSlice.reducer;

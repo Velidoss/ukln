@@ -14,13 +14,14 @@ const Input = () => {
   const [workHours, setWorkHours] = useState('');
   const dispatch = useDispatch();
   const errorState = useAppSelector(errorSelector);
-  console.log(errorState)
+
   const changeWorkerName = (event) => {
     if (errorState){
       dispatch(toggleErrorState(false));
     }
     setWorkerName(event.target.value);
   };
+  
   const changeWorkHours = (event) => {
     setWorkHours(event.target.value);
   };
